@@ -215,7 +215,7 @@ footer{border-top:2px solid var(--navy);padding:2.5rem 4rem;display:flex;justify
 <body>
 
 <div class="topbar">
-  EU AI Act full enforcement: <strong>August 2, 2026</strong> &nbsp;·&nbsp; Fines up to <strong>€35,000,000</strong> or 7% of global turnover &nbsp;·&nbsp; 56 days remaining
+  EU AI Act full enforcement: <strong>August 2, 2026</strong> &nbsp;·&nbsp; Fines up to <strong>€35,000,000</strong> or 7% of global turnover &nbsp;·&nbsp; <span id="countdown">...</span> days remaining
 </div>
 
 <nav>
@@ -281,7 +281,7 @@ footer{border-top:2px solid var(--navy);padding:2.5rem 4rem;display:flex;justify
 
 <!-- ── RULING STRIP ── -->
 <div class="ruling">
-  <div class="ruling-item"><span class="ruling-num">50+</span><span class="ruling-desc">Frameworks monitored</span></div>
+  <div class="ruling-item"><span class="ruling-num">6</span><span class="ruling-desc">Live frameworks</span></div>
   <div class="ruling-item"><span class="ruling-num">< 1ms</span><span class="ruling-desc">Classification latency</span></div>
   <div class="ruling-item"><span class="ruling-num">10 min</span><span class="ruling-desc">Time to integration</span></div>
   <div class="ruling-item"><span class="ruling-num">€35M</span><span class="ruling-desc">Max fine avoided</span></div>
@@ -298,7 +298,7 @@ footer{border-top:2px solid var(--navy);padding:2.5rem 4rem;display:flex;justify
     <div class="article">
       <div class="article-num">Article I · Install</div>
       <h3>One package</h3>
-      <p>Add <code>pip install lexagent</code> or <code>npm i @lexagent/sdk</code>. No configuration, no refactoring, no architectural changes required. Compatible with any agent framework.</p>
+      <p>Add <code>pip install lexagent</code> or <code>npm i @lexagent/sdk</code> — SDK publishing in progress. Until then, integrate directly via the <a href="https://lexagent-api-jnlm.onrender.com/docs" target="_blank" style="color:var(--gold)">REST API</a>. No architectural changes required. Compatible with any agent framework.</p>
     </div>
     <div class="article">
       <div class="article-num">Article II · Monitor</div>
@@ -389,52 +389,52 @@ footer{border-top:2px solid var(--navy);padding:2.5rem 4rem;display:flex;justify
   <p class="sec-body">Fixed monthly retainer. All plans include the blockchain audit trail — because tamper-proof evidence is not optional when regulators arrive.</p>
   <div class="pricing-grid">
     <div class="plan">
-      <div class="plan-mark">Starter Retainer</div>
+      <div class="plan-mark">Free</div>
+      <div class="plan-price">€0<sub>/forever</sub></div>
+      <div class="plan-desc">For evaluation and first compliance check.</div>
+      <hr class="plan-hr">
+      <ul class="plan-feats">
+        <li>1 agent monitored</li>
+        <li>EU AI Act + GDPR</li>
+        <li>1,000 events / month</li>
+        <li>Blockchain audit trail</li>
+        <li>PDF compliance report</li>
+        <li class="dim">Custom frameworks</li>
+        <li class="dim">White-label dashboard</li>
+      </ul>
+      <a href="#retainer" class="plan-btn pbtn-outline">Get started</a>
+    </div>
+    <div class="plan plan-navy">
+      <div class="plan-mark">Starter</div>
       <div class="plan-price">€49<sub>/mo</sub></div>
       <div class="plan-desc">For teams deploying their first production agents.</div>
       <hr class="plan-hr">
       <ul class="plan-feats">
         <li>Up to 3 agents monitored</li>
-        <li>EU AI Act + GDPR</li>
+        <li>EU AI Act + GDPR + NIST</li>
         <li>10,000 events / month</li>
         <li>Blockchain audit trail</li>
         <li>PDF compliance reports</li>
-        <li class="dim">Custom frameworks</li>
+        <li>Priority response</li>
         <li class="dim">White-label dashboard</li>
       </ul>
-      <a href="#retainer" class="plan-btn pbtn-outline">Retain</a>
+      <a href="#retainer" class="plan-btn pbtn-gold">Get Access</a>
     </div>
-    <div class="plan plan-navy">
-      <div class="plan-mark">Pro Retainer</div>
-      <div class="plan-price">€199<sub>/mo</sub></div>
+    <div class="plan">
+      <div class="plan-mark">Pro</div>
+      <div class="plan-price">€99<sub>/mo</sub></div>
       <div class="plan-desc">For organisations running agents in production at scale.</div>
       <hr class="plan-hr">
       <ul class="plan-feats">
-        <li>Up to 20 agents monitored</li>
+        <li>Up to 10 agents monitored</li>
         <li>All 6 live frameworks</li>
-        <li>500,000 events / month</li>
+        <li>100,000 events / month</li>
         <li>Blockchain audit trail</li>
         <li>PDF + JSON reports</li>
         <li>White-label dashboard</li>
         <li>Priority response</li>
       </ul>
-      <a href="#retainer" class="plan-btn pbtn-gold">Retain</a>
-    </div>
-    <div class="plan">
-      <div class="plan-mark">Enterprise Retainer</div>
-      <div class="plan-price" style="font-size:36px">Bespoke</div>
-      <div class="plan-desc">For organisations requiring custom jurisdiction coverage and dedicated counsel.</div>
-      <hr class="plan-hr">
-      <ul class="plan-feats">
-        <li>Unlimited agents</li>
-        <li>All frameworks + custom</li>
-        <li>Unlimited events</li>
-        <li>Blockchain audit trail</li>
-        <li>All report formats</li>
-        <li>White-label + custom domain</li>
-        <li>99.9% uptime SLA</li>
-      </ul>
-      <a href="mailto:contact@neuronium.engineer" class="plan-btn pbtn-dark">Enquire</a>
+      <a href="#retainer" class="plan-btn pbtn-outline">Get Access</a>
     </div>
   </div>
 </div>
@@ -473,6 +473,15 @@ footer{border-top:2px solid var(--navy);padding:2.5rem 4rem;display:flex;justify
 </footer>
 
 <script>
+// Dynamic countdown to August 2, 2026
+(function(){
+  var target = new Date('2026-08-02T00:00:00Z');
+  var el = document.getElementById('countdown');
+  if(!el) return;
+  var diff = Math.ceil((target - new Date()) / (1000*60*60*24));
+  el.textContent = diff > 0 ? diff : '0';
+})();
+
 function retain(){
   const v=document.getElementById('ret-email').value.trim()
   if(!v||!v.includes('@'))return
